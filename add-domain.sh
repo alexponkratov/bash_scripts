@@ -55,6 +55,13 @@ else
     exit 1
 fi
 
+
+#
+# Create mailbox directory
+#
+mkdir -p $MAILBOX_DIR/$DOMAIN_NAME
+chown vmail:vmail $MAILBOX_DIR/$DOMAIN_NAME
+
 #
 # Make a site dir and copy roundcube web-mail engine
 #
