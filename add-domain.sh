@@ -50,7 +50,7 @@ if [ $# -lt 1 ]; then
 	exit 1
     fi
 else
-    echo "Скрипт производит подключение подключение почтового домена к серверу."
+    echo "Скрипт производит подключение почтового домена к серверу."
     echo "Запускается без параметров: ./add-domain.sh."
     exit 1
 fi
@@ -97,7 +97,7 @@ if [ "$DKIM_KEY" = "Yes" ]; then
     echo *@$DOMAIN_NAME mail._domainkey.$DOMAIN_NAME >> signingtable
     echo mail._domainkey.$DOMAIN_NAME $DOMAIN_NAME:mail:/etc/postfix/dkim/mail.$DOMAIN_NAME.private >> keytable
     echo KeyFile            /etc/postfix/dkim/mail.$DOMAIN_NAME.private >> /etc/opendkim.conf
-    chown root:opendkim /etc/postfix/dkim
+    chown -R root:opendkim /etc/postfix/dkim
     chmod u=rw,g=r,o= /etc/postfix/dkim/*
     echo -e "\nGenerate DKIM data is done. Plaese update DNS record. Add TXT record email._domainkey.$DOMAIN_NAME with text:\n"
     cat /etc/postfix/dkim/mail.$DOMAIN_NAME.txt
